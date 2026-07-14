@@ -1,26 +1,56 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Sparkles } from 'lucide-react';
 import Profile from './components/Profile';
 import LinkBlock from './components/LinkBlock';
 import Socials from './components/Socials';
-import siteData from './data.json';
 
 function App() {
-  // Apply theme if available in data
+  const [siteData, setSiteData] = useState(null);
+  const [loading, setLoading] = useState(true);
+
   useEffect(() => {
-    if (siteData.profile?.theme) {
-      const root = document.documentElement;
-      if (siteData.profile.theme.backgroundColor) {
-        root.style.setProperty('--bg-color', siteData.profile.theme.backgroundColor);
-      }
-      if (siteData.profile.theme.textColor) {
-        root.style.setProperty('--text-color', siteData.profile.theme.textColor);
-      }
-      if (siteData.profile.theme.accentColor) {
-        root.style.setProperty('--accent-color', siteData.profile.theme.accentColor);
-      }
-    }
+    // Fetch data.json from the public folder at runtime
+    fetch('./data.json')
+      .then((response) => response.json())
+      .then((data) => {
+        setSiteData(data);
+        setLoading(false);
+        
+        // Apply theme if available
+        if (data.profile?.theme) {
+          const root = document.documentElement;
+          if (data.profile.theme.backgroundColor) {
+            root.style.setProperty('--bg-color', data.profile.theme.backgroundColor);
+          }
+          if (data.profile.theme.textColor) {
+            root.style.setProperty('--text-color', data.profile.theme.textColor);
+          }
+          if (data.profile.theme.accentColor) {
+            root.style.setProperty('--accent-color', data.profile.theme.accentColor);
+          }
+        }
+      })
+      .catch((error) => {
+        console.error("Error cargando los datos:", error);
+        setLoading(false);
+      });
   }, []);
+
+  if (loading) {
+    return (
+      <div className="container" style={{ justifyContent: 'center' }}>
+        <p className="animate-fade-in" style={{ color: 'var(--text-color)' }}>Cargando perfil...</p>
+      </div>
+    );
+  }
+
+  if (!siteData) {
+    return (
+      <div className="container" style={{ justifyContent: 'center' }}>
+        <p className="animate-fade-in">Error al cargar los datos.</p>
+      </div>
+    );
+  }
 
   return (
     <div className="container">
