@@ -1,0 +1,66 @@
+{
+  "profile": {
+    "name": "@msakiya",
+    "bio": "Creador de contenido | Desarrollador | Minimalista",
+    "avatar": "https://avatars.githubusercontent.com/u/1?v=4",
+    "theme": {
+      "backgroundColor": "#f4f4f5",
+      "textColor": "#18181b",
+      "accentColor": "#27272a"
+    }
+  },
+  "links": [
+    {
+      "id": "1",
+      "type": "url",
+      "title": "Mi Portafolio",
+      "url": "https://github.com/msakiya",
+      "icon": "Globe"
+    },
+    {
+      "id": "2",
+      "type": "video",
+      "title": "Mi último video",
+      "url": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+      "icon": "Youtube"
+    },
+    {
+      "id": "3",
+      "type": "email",
+      "title": "Contáctame",
+      "url": "hola@ejemplo.com",
+      "icon": "Mail"
+    },
+    {
+      "id": "4",
+      "type": "phone",
+      "title": "WhatsApp",
+      "url": "+1234567890",
+      "icon": "Phone"
+    },
+    {
+      "id": "5",
+      "type": "image",
+      "title": "Mi setup",
+      "url": "https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=800&auto=format&fit=crop",
+      "icon": "Image"
+    }
+  ],
+  "socials": [
+    {
+      "platform": "github",
+      "url": "https://github.com/msakiya",
+      "icon": "Github"
+    },
+    {
+      "platform": "twitter",
+      "url": "https://twitter.com/msakiya",
+      "icon": "Twitter"
+    },
+    {
+      "platform": "instagram",
+      "url": "https://instagram.com/msakiya",
+      "icon": "Instagram"
+    }
+  ]
+}
